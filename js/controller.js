@@ -40,7 +40,7 @@ let controller = (function (budgetCtrl, uiCtrl, testsFunc) {
 
         // 3. Отобразить бюдежт в шаблоне
         uiCtrl.updateBudget(budgetObj);
-        
+
     }
 
 
@@ -48,6 +48,12 @@ let controller = (function (budgetCtrl, uiCtrl, testsFunc) {
         init:function(){
             console.log("App started");
             setupEventListeners();
+            uiCtrl.updateBudget({
+                budget : 0,
+                totalInc: 0,
+                totalExp: 0,
+                percentage: 0,
+            });
         }
     }
 
