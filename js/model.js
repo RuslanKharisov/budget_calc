@@ -24,14 +24,48 @@ let modelController = (function(){
         }
         // в зависимости от пипа используем соответствующий конструктор и создаем объект
         if(type === "inc"){
-            newItem = new Income(ID, desc, val);
+            newItem = new Income(ID, desc, parseFloat(val));
         } else if (type === "exp"){
-            newItem = new Expense(ID, desc, val);
+            newItem = new Expense(ID, desc, parseFloat(val));
         }
 
         data.allItems[type].push(newItem)
 
         return newItem
+    }
+
+    function calculateTotalSum(type){
+        let sum = 0;
+        data.allItems[type].forEach(function(item){
+            sum = sum + item.value;
+        });
+        return sum;
+    }
+    
+    function calculateBudget(){
+        data.totals.inc = calculateTotalSum("inc");
+
+        data.totals.exp = calculateTotalSum("exp");
+        
+        // расчет общего бюджета
+        data.budget = data.totals.inc - data.totals.exp;
+        
+// ---------------- расчет процента расходов-------------------------------------
+
+        if (data.totals.inc > 0){
+             data.percentage = Math.round(data.totals.exp / data.totals.inc * 100);
+        } else {
+            data.percentage = -1;
+        }
+    }
+
+    function getBudget(){
+        return {
+            budget : data.budget,
+            totalInc: data.totals.inc,
+            totalExp: data.totals.exp,
+            percentage: data.percentage,
+        }
     }
 
     let data = {
@@ -42,13 +76,17 @@ let modelController = (function(){
         totals: {
             inc: 0,
             exp: 0
-        }        
+        },
+        budget: 0,
+        percentage: -1
     }
+    
     return {
         addItem: addItem,
+        getBudget: getBudget,
+        calculateBudget:calculateBudget,
         test: function(){
-            console.log(data)
-        }
+            }
     }
 
 

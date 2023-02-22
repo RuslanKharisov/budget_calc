@@ -7,6 +7,10 @@ let viewController = (function () {
         form: "#budget-form",
         incomeContainer: "#income__list",
         expenseContainer: "#expenses__list",
+        budgetLabel: "#budget-value",
+        incomeLabel: "#income-label",
+        expesesLabel: "#expense-label",
+        expencePercentLabel: "#exp-percents-label",
     }
 
     function getInput(){
@@ -19,9 +23,6 @@ let viewController = (function () {
 
     function renderListItem(obj, type){
         let containerElement, html;
-        console.log(obj);
-        console.log(type);
-
         if(type === "inc"){
             containerElement = DOMstrings.incomeContainer;
             html = `<li id="income-%id%" class="budget-list__item item item--income">
@@ -74,10 +75,25 @@ let viewController = (function () {
         imputVal.value = "";
     }
 
+    function updateBudget(obj){
+
+        document.querySelector(DOMstrings.budgetLabel).textContent = obj.budget;
+        document.querySelector(DOMstrings.incomeLabel).textContent = obj.totalInc;
+        document.querySelector(DOMstrings.expesesLabel).textContent = obj.totalExp;
+        
+        if (obj.percentage > 0){
+            document.querySelector(DOMstrings.expencePercentLabel).textContent = obj.percentage;
+        } else {
+            document.querySelector(DOMstrings.expencePercentLabel).textContent = "-";
+        }
+        
+    }
+
     return {
         getInput: getInput,
         renderListItem: renderListItem,
         clearFields: clearFields,
+        updateBudget: updateBudget,
         getDomStrings: function () {
             return DOMstrings
         }

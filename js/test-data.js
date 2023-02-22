@@ -1,7 +1,5 @@
 let tests = (function(){
 
-    console.log("hello")
-
     let ExampleItem = function(type, desc, sum){
         this.type = type;
         this.desc = desc;
@@ -10,14 +8,14 @@ let tests = (function(){
 
 
     let testData = [
-        new ExampleItem("inc", "Salary", 30506),
-        new ExampleItem("inc", "Freelance", 12400),
-        new ExampleItem("inc", "Partner Programm", 30506),
-        new ExampleItem("inc", "Sales", 30506),
-        new ExampleItem("exp", "Rent", 30506),
+        new ExampleItem("inc", "Salary", 55506),
+        new ExampleItem("inc", "Freelance", 120400),
+        new ExampleItem("inc", "Partner Programm", 11506),
+        new ExampleItem("inc", "Sales", 50506),
+        new ExampleItem("exp", "Rent", 21306),
         new ExampleItem("exp", "Entertainments", 12200),
-        new ExampleItem("exp", "Purchases", 30506),
-        new ExampleItem("exp", "Fuel", 30506)
+        new ExampleItem("exp", "Purchases", 15506),
+        new ExampleItem("exp", "Fuel", 10506)
     ];
 
 
