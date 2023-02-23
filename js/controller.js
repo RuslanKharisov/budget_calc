@@ -3,6 +3,8 @@ let controller = (function (budgetCtrl, uiCtrl, testsFunc) {
     let setupEventListeners = function(){
         let DOM = uiCtrl.getDomStrings();
         document.querySelector(DOM.form).addEventListener("submit", ctrlAddItem);
+// слушаем клик по таблице с расходами и доходами
+        document.querySelector(DOM.budgetTable).addEventListener("click", ctrlDeleteItem);
     }
     
 // функция которая срабатывает при отпрвке формы
@@ -27,8 +29,32 @@ let controller = (function (budgetCtrl, uiCtrl, testsFunc) {
 
             updateBudget ()
         }
+
     }
 
+    function ctrlDeleteItem(e){
+
+        let itemID, spliID, ID, type;
+        // отлавливаем клик по кнопке удалить
+        if(e.target.closest(".item__remove")){
+
+            // определение ID который нужно удалить
+            itemID = e.target.closest("li.budget-list__item").id; // inc-0
+            console.log("🚀 ~ file: controller.js:41 ~ ctrlDeleteItem ~ itemID:", itemID)
+
+            spliID = itemID.split("-")
+            type = spliID[0];
+            ID = parseInt(spliID[1]);
+
+            // Удаляем запись из модели
+            budgetCtrl.deletItem(type, ID);
+
+            // // Удаляем запись из шаблона
+            uiCtrl.deleteListItem(itemID);
+
+            updateBudget ()
+        }
+    }
 
     function updateBudget (){
         // 1. Расчитать бюджет в модели 
@@ -36,13 +62,11 @@ let controller = (function (budgetCtrl, uiCtrl, testsFunc) {
 
         // 2. Получить бюджт из модели
         budgetObj = budgetCtrl.getBudget();
-        console.log("🚀 ~ file: controller.js:40 ~ updateBudget ~ budgetObj:", budgetObj)
 
         // 3. Отобразить бюдежт в шаблоне
         uiCtrl.updateBudget(budgetObj);
 
     }
-
 
     return {
         init:function(){

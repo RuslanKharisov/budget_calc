@@ -34,6 +34,25 @@ let modelController = (function(){
         return newItem
     }
 
+    function deletItem (type, id){
+        let index;
+        // создаем массив id записей взависимости от типа 
+        let ids = data.allItems[type].map(function(item){
+            return item.id
+        });
+        console.log("🚀 ~ file: model.js:43 ~ ids ~ ids:", ids)
+
+        // определяем индекс записи в массиве по id 
+        index = ids.indexOf(id);
+        console.log("🚀 ~ file: model.js:46 ~ deletItem ~ index:", index)
+
+        if (index !== -1) {
+            data.allItems[type].splice(index, 1); // удаляем запись из массива
+        }
+        
+
+    }
+
     function calculateTotalSum(type){
         let sum = 0;
         data.allItems[type].forEach(function(item){
@@ -85,6 +104,7 @@ let modelController = (function(){
         addItem: addItem,
         getBudget: getBudget,
         calculateBudget:calculateBudget,
+        deletItem:deletItem,
         test: function(){
             }
     }
