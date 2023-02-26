@@ -27,7 +27,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://ruslankharisov.github.io/budget_calc/)
+![Budget Calc App Screen Shot][Budget Calc App Screen Shot](./img/app%20-screenshot.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
