@@ -27,7 +27,7 @@
 
 ## About The Project
 
-![Budget Calc App Screen Shot][Budget Calc App Screen Shot](./img/app%20-screenshot.png)
+![Budget Calc App Screen Shot][Budget Calc App Screen Shot](/budget_calc/img/screenshot.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
