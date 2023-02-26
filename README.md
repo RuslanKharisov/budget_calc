@@ -48,7 +48,7 @@
 
 Ruslan Kharisov - ruslan.kharisov@gmail.com
 
-Project Link: [https://github.com/RuslanKharisov/budget_calc](https://github.com/RuslanKharisov/budget_calc)
+Project Link: [https://ruslankharisov.github.io/budget_calc/](https://ruslankharisov.github.io/budget_calc/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
