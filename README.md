@@ -14,41 +14,35 @@
   <p align="center">
     Application for accounting expenses and income using MVC architecture
     <br />
-    <a href="#"><strong>step-by-step plan</strong></a>
     <br />
-    <br />
-    <a href="#">Model</a>
-    ·
-    <a href="#">View</a>
-    ·
-    <a href="#">Controller</a>
   </p>
 </div>
 
-## About The Project
-
 ![Budget Calc App Screen Shot](./img/screenshot.png )
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<h2 align="center"><a  href="https://ruslankharisov.github.io/budget_calc/">Live Demo</a></h2>
+<br />
 
-### Built With
+<h2 align="center"> Built With </h2>
 
-<p align="right">
+<p align="center">
+  
   <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/visual-studio-code.svg" alt="visual-studio-code" title="visual-studio-code" height="45px"/>  
-  <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/bootstrap.svg" alt="bootstrap" title="bootstrap" height="45px"/>
   <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/css-3.svg" alt="css-3" title="css-3" height="45px"/>
   <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/html-5.svg" alt="html-5" title="html-5" height="45px"/>  
   <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/javascript.svg" alt="javascript" title="javascript" height="45px"/>
   
 </p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<div align="center">
 
 ## Contact
 
 Ruslan Kharisov - ruslan.kharisov@gmail.com
 
 Project Link: [https://ruslankharisov.github.io/budget_calc/](https://ruslankharisov.github.io/budget_calc/)
+  
+<div />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
