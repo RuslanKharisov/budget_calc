@@ -6,6 +6,20 @@ let controller = (function (budgetCtrl, uiCtrl, testsFunc) {
 // слушаем клик по таблице с расходами и доходами
         document.querySelector(DOM.budgetTable).addEventListener("click", ctrlDeleteItem);
     }
+
+    function updatePercentages(){
+        // Считаем процены для каждой записи Expence
+        budgetCtrl.calculatePercentage();
+        budgetCtrl.test();
+        
+        // получаем данные из модели
+        let idsAndPercents = budgetCtrl.getAllIdsAndPercentage();
+
+        //
+        uiCtrl.updateItemPercets(idsAndPercents);
+    
+    
+    }
     
 // функция которая срабатывает при отпрвке формы
     function ctrlAddItem(e) {
@@ -27,7 +41,8 @@ let controller = (function (budgetCtrl, uiCtrl, testsFunc) {
 
             // console.log("AddItem fired")
 
-            updateBudget ()
+            updateBudget ();
+            updatePercentages()
         }
 
     }
@@ -54,6 +69,7 @@ let controller = (function (budgetCtrl, uiCtrl, testsFunc) {
 
             updateBudget ()
         }
+        updatePercentages()
     }
 
     function updateBudget (){
@@ -71,6 +87,7 @@ let controller = (function (budgetCtrl, uiCtrl, testsFunc) {
     return {
         init:function(){
             console.log("App started");
+            uiCtrl.displayMonth();
             setupEventListeners();
             uiCtrl.updateBudget({
                 budget : 0,

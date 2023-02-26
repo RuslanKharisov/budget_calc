@@ -1,16 +1,31 @@
 let modelController = (function(){
 
-    var Income = function(id, description, value) {
+    let Income = function(id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
     }
 
-    var Expense = function(id, description, value) {
+    let Expense = function(id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
+        this.percentage = -1;
     }
+
+    Expense.prototype.calcPercentage = function(totalIncome){
+        if(totalIncome > 0){
+            this.percentage = Math.round(this.value/totalIncome*100);
+        } else {
+            this.percentage = -1;
+        }
+    }
+
+    Expense.prototype.getPercentage = function(){
+        return this.percentage;
+    }
+
+
 
     function addItem (type, desc, val){
         let newItem;
@@ -87,6 +102,24 @@ let modelController = (function(){
         }
     }
 
+    function calculatePercentage(){
+        data.allItems.exp.forEach(function(item){
+            item.calcPercentage(data.totals.inc);
+        })
+    }
+
+    function getAllIdsAndPercentage(){
+        // [[0, 8], [1, 15], [2, 30]]
+
+        let allPerc = data.allItems.exp.map(function(item){
+            return [item.id, item.getPercentage()];
+        });
+
+        return allPerc;
+
+
+    }
+
     let data = {
         allItems: {
             inc: [],
@@ -105,7 +138,11 @@ let modelController = (function(){
         getBudget: getBudget,
         calculateBudget:calculateBudget,
         deletItem:deletItem,
+        calculatePercentage:calculatePercentage,
+        getAllIdsAndPercentage:getAllIdsAndPercentage,
+        
         test: function(){
+            console.log(data)
             }
     }
 
